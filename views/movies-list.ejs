@@ -16,7 +16,7 @@
             </h4>
             <hr/ class="result-divider mb-5 mt-5">
                 <% if(results['Response']==='True'){ %>
-                    <div id="data" hidden>
+                    <div id="idata" hidden>
                         <%= JSON.stringify(movieDetails) %>
                     </div>
                     <div class="row">
@@ -45,7 +45,13 @@
                                                 </p>
                                             </div>
                                             <div class="card-footer">
-                                                <a href="" class="btn btn-success"><i class="fa fa-pencil"></i> Nominate</a>
+                                                <!-- <form class="nom_form" action="" method="POST">
+                                                    <input type="text" name="nom_title" id="nom_title" value="<%= data['Title']%>" hidden/>
+                                                    <input type="text" name="nom_release" id="nom_release" value="<%= data['Released']%>" hidden/>
+                                                    <button type="submit" href="" class="btn btn-success"><i class="fa fa-pencil"></i> Nominate</button>
+                                                </form> -->
+                                                <input class="hidden nom_title" type="text" name="nom_title" value="<%= data['Title']%>" hidden/>
+                                                <button class="btn btn-success btn-nominate"><i class="fa fa-pencil"></i> Nominate</button>
                                             </div>
                                         </div>
                                     </div>
@@ -58,14 +64,12 @@
                             </div>
                         </div>
                         <div class="col-md-4">
+                            <div class="notices mb-3"></div>
                             <div class="card">
                                 <div class="card-header">
                                     <b>Nominations</b>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Cras justo odio</li>
-                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    <li class="list-group-item">Vestibulum at eros</li>
+                                <ul id="nomination_list" class="list-group list-group-flush">
                                 </ul>
                             </div>
                         </div>
